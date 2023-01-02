@@ -4,12 +4,9 @@ Initialized empty Git repository in E:/Library/.git/
 *** E:\Library>git status (перевіряємо статус)
       ***git config --global --add safe.directory E:/Library 
 
-*** E:\Library>git status  (перевіряємо статус)
-
+*** E:\Library>git stat commit us  (перевіряємо статус)
       On branch master
-
       No commits yet
-
       Untracked files:
         (use "git add <file>..." to include in what will
               be committed)
@@ -23,18 +20,20 @@ Initialized empty Git repository in E:/Library/.git/
     [master (root-commit) 9af46be] Clear Template
      20 files changed, 171 insertions(+)
 
-# Наш віддалений сервер має назву - origin https://github.com/AnHarazd/elibrary.git
+# Наш віддалений хмарний репозиторій назву - origin https://github.com/AnHarazd/library.git
 Гілка локального репозиторію має назву - master
-# Встановлюємо звязок нашого локального репо з віддаленим репо на GitHub
 
+# Звязуємо наш локальний репо з віддаленим репо на GitHub
 *** git remote add origin https://github.com/AnHarazd/Django.git
+
 
 Щоб побачити, які віддалені сервера ви налаштували, ви можете виконати команду
 *** git remote
 origin
 
 
-Ви також можете дати опцію -v, яка покаже вам посилання, які Git зберігає та використовує при читанні та записі до цього сховища:
+Ви також можете дати опцію -v, яка покаже вам посилання, які Git зберігає та
+використовує при читанні та записі до цього сховища:
 *** git remote -v
 origin  https://github.com/AnHarazd/elibrary.git (fetch)
 origin  https://github.com/AnHarazd/elibrary.git (push)
@@ -42,16 +41,18 @@ origin  https://github.com/AnHarazd/elibrary.git (push)
 Коли ви довели свій проект до стану, коли хочете ним поділитись, вам треба
 надіслати (push) ваші зміни нагору (upstream). Це робиться простою командою:
 
-***git  push <назва сховища> <назва гілки>. 
+*** git push <назва сховища> <назва гілки>
+*** git push origin master
  
-Якщо ви бажаєте викласти свою гілку master до вашого серверу origin (клонування зазвичай налаштовує обидва імені для вас автоматично), 
+Якщо ви бажаєте викласти свою гілку master до вашого серверу origin 
+(клонування зазвичай налаштовує обидва імені для вас автоматично), 
 ви можете виконати наступне для надсилання всіх зроблених комітів до сервера:
 *** git push origin master
 
 Якщо хтось інший зробив клон та надіслав щось назад перед вами, вашій спробі буде слушно відмовлено. 
 Вам доведеться спершу отримати їхню працю й вбудувати її до вашої до того, як вам дозволять надіслати свої зміни.
 
-=================================
+============================================================
 Оглядання віддаленого сховища
 Якщо ви бажаєте більше дізнатись про окреме віддалене сховище, ви можете використати команду
 git remote show <назва сховища>.
