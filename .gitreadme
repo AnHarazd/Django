@@ -1,0 +1,190 @@
+*** E:\Library>git init  (ініціалізуємо репозиторій)
+Initialized empty Git repository in E:/Library/.git/
+
+*** E:\Library>git status (перевіряємо статус)
+      ***git config --global --add safe.directory E:/Library 
+
+*** E:\Library>git status  (перевіряємо статус)
+
+      On branch master
+
+      No commits yet
+
+      Untracked files:
+        (use "git add <file>..." to include in what will
+              be committed)
+             .gitignore
+              .gitreadme
+              domain/
+
+***  E:\Library>git add .  (додаємо файли до репозиторію)
+
+*** E:\Library>git commit -m "Clear Template"  (робимо коміт)
+    [master (root-commit) 9af46be] Clear Template
+     20 files changed, 171 insertions(+)
+
+# Наш віддалений сервер має назву - origin https://github.com/AnHarazd/elibrary.git
+Гілка локального репозиторію має назву - master
+# Встановлюємо звязок нашого локального репо з віддаленим репо на GitHub
+
+*** git remote add origin https://github.com/AnHarazd/Django.git
+
+Щоб побачити, які віддалені сервера ви налаштували, ви можете виконати команду
+*** git remote
+origin
+
+
+Ви також можете дати опцію -v, яка покаже вам посилання, які Git зберігає та використовує при читанні та записі до цього сховища:
+*** git remote -v
+origin  https://github.com/AnHarazd/elibrary.git (fetch)
+origin  https://github.com/AnHarazd/elibrary.git (push)
+
+Коли ви довели свій проект до стану, коли хочете ним поділитись, вам треба
+надіслати (push) ваші зміни нагору (upstream). Це робиться простою командою:
+
+***git  push <назва сховища> <назва гілки>. 
+ 
+Якщо ви бажаєте викласти свою гілку master до вашого серверу origin (клонування зазвичай налаштовує обидва імені для вас автоматично), 
+ви можете виконати наступне для надсилання всіх зроблених комітів до сервера:
+*** git push origin master
+
+Якщо хтось інший зробив клон та надіслав щось назад перед вами, вашій спробі буде слушно відмовлено. 
+Вам доведеться спершу отримати їхню працю й вбудувати її до вашої до того, як вам дозволять надіслати свої зміни.
+
+=================================
+Оглядання віддаленого сховища
+Якщо ви бажаєте більше дізнатись про окреме віддалене сховище, ви можете використати команду
+git remote show <назва сховища>.
+
+E:\Library>git remote show origin
+* remote origin
+  Fetch URL: https://github.com/AnHarazd/elibrary.git
+  Push  URL: https://github.com/AnHarazd/elibrary.git
+  HEAD branch: (unknown)
+
+Перейменування та видалення віддалених сховищ
+Ви можете виконати git remote rename, щоб перейменувати віддалене сховище.
+Наприклад, щоб перейменувати pb на paul, ви можете зробити це за допомогою
+git remote rename
+git remote rename pb paul
+
+git remote rename origin main
+
+============================================
+!!! Видалення файлу зі списку для PUSH на GitHub
+у випадку якщо він вже туди потрапив!!!
+
+--- На старті забули записати в .gitignore
+
+
+*** git rm --cached .gitreadme
+
+*** git commit -m "Version 2"
+
+*** git push origin master
+
+Перегляд історії комітів
+Після того як ви створили декілька комітів, або якщо ви зробили клон репозиторія
+з існуючою історією комітів, ви напевно забажаєте дізнатись, що було відбувалося.
+Найбільш могутньою утилітою для цього є команда git log.
+*** git log
+
+(ВИХІД З GIT LOG -- Q, q, ZZ)
+
+Якщо не передати жодної опції до команди git log, вона виведе зроблені коміти
+репозиторія у зворотному хронологічному порядку — тобто, найновіші коміти будуть
+показані першими. Як бачите, ця команда показує для кожного коміту його SHA-1
+хеш, ім’я та пошту автора, дату запису, та повідомлення коміту.
+
+Дуже корисною є опція -p чи --patch, що показує різницю (вивід латки,
+англійською patch), привнесену при кожному коміті. Ви також можете обмежити
+кількість показаних записів журналу, наприклад, використати -2, щоб переглянути
+лише два останні елементи:
+*** git log -p -2
+
+
+Додавання віддалених сховищ (стор 54-55)
+https://github.com/AnHarazd/My-Learning-Git.git
+
+git remote add education https://github.com/AnHarazd/My-Learning-Git.git
+
+Отримуємо:
+E:\Library>git remote -v
+
+education       https://github.com/AnHarazd/My-Learning-Git.git (fetch)
+education       https://github.com/AnHarazd/My-Learning-Git.git (push)
+origin  https://github.com/AnHarazd/elibrary.git (fetch)
+origin  https://github.com/AnHarazd/elibrary.git (push)
+
+
+
+Можна запушити проект у інше сховище на GitHub під іншою 
+віддаленою гілкою в даному випадку - education
+---------------------------
+git push education master
+
+На https://github.com/AnHarazd/elibrary.git
+створиться гілка master
+
+
+
+===========================================
+Перейменування віддаленого сховища
+git remote rename education edu
+git remote rename education edu
+Renaming remote references: 100% (3/3), done.
+
+
+Перейменовуємо локальне сховище в double
+git branch -M double
+
+Отримуємо:
+E:\Library>git branch
+* double
+
+
+Пушимо в локальне вщгиду у хмарне сховище edu:
+
+Маємо два віддалених сховищаE:\Library>git remote -v
+edu     https://github.com/AnHarazd/My-Learning-Git.git (fetch)
+edu     https://github.com/AnHarazd/My-Learning-Git.git (push)
+origin  https://github.com/AnHarazd/elibrary.git (fetch)
+origin  https://github.com/AnHarazd/elibrary.git (push)
+
+
+Отримуємо з конкретно\ гілки у наш проект:
+E:\Library>git clone -b double https://github.com/AnHarazd/My-Learning-Git.git
+
+git clone --branch <branchname> <remote-repo-url>
+or
+git clone -b <branchname> <remote-repo-url>
+
+Так можна злити дві гілки в один проект!!!!!!!!!
+================================================
+
+
+
+
+========================================================
+https://github.com/AnHarazd/elibrary.git
+Get started by creating a new file or uploading an existing file. We recommend every repository include a README, LICENSE, and .gitignore.
+
+�or create a new repository on the command line
+echo "# elibrary" >> README.md
+
+
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/AnHarazd/elibrary.git
+git push -u origin main
+
+
+�or push an existing repository from the command line
+
+
+git remote add origin https://github.com/AnHarazd/elibrary.git
+git branch -M main
+git push -u origin main
+

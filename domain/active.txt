@@ -1,0 +1,42 @@
+АКТИВАЦИЯ ВИРТУАЛЬНОЙ СРЕДЫ
+
+•••• Активация в Windows в коммандной строке
+Если наша ОС - Windows, то в папке .venv/Scripts/ мы можем найти файл activate.bat, который активирует виртуальную среду. Так, в Windows активация виртуальной среды в коммандной строке будет выглядеть таким образом:
+
+.venv\Scripts\activate.bat
+
+•••• Активация в Windows в PowerShell
+Также при работе на Windows в папке .venv/Scripts/ мы можем найти файлactivate.ps1, который также активирует виртуальную среду, но применяется только в PowerShell. Но при работе с PowerShell следует учитывать, что по умолчанию в этой оболочке запрещено применять скрипты. Поэтому перед активацией среды необходимо установить разрешения для текущего пользователя. Поэтому для активации виртуальной среды в PowerShell необходимо выполнить две следующих команды:
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+.venv\Scripts\Activate.ps1
+
+---------------------
+Python Install
+
+c:\Python38-32
+----------------------------------------------------------------------
+D:\Django>python -V  === Python 3.8.6
+D:\Django>pip -V  === pip 22.0.3
+
+Note that Python 3.9+ cannot be used on Windows 7 or earlier.
+Зверніть увагу, що Python 3.9+ не можна використовувати в Windows 7 або раніших версіях.
+
+python -m pip install django~=3.2.16
+Последняя версия Django 3 === 3.2.16
+
+Проверка python
+>>> import django
+>>> print(django.get_version())
+
+Создание суперпользователя
+python manage.py createsuperuser
+Ім'я користувача (leave blank to use 'andrew'): admin
+Email адреса: 
+Password: admin
+Password (again): admin
+
+
+
+
